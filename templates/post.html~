@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<h4>Post your thoughts here</h4>
+<form method="post" action="{{ url_for('add_entry')}}">
+<div align="center">
+<p> Title </p>
+<input type="text" name="name" style="width: 250px"><br>
+<textarea name="blogpost" cols="45" rows="15">
+</textarea><br>
+<input type="submit" value="Submit" />
+</div>
+</form>
+<div align="centre">
+<u><font size=5 color=blue>Recent posts</font></u>
+  <ul class=sale>
+  {% for entry in posts %}
+   <font size=5 color=red>{{ entry.author }}</font></br>
+   {{ entry.post}}</br>
+------------------------------</br>
+  {% endfor %}
+  </ul>
+</div>
+{% endblock %} 
